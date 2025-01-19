@@ -2850,8 +2850,9 @@ input, select, textarea {
 			}
 
 			.wrapper.style1 header.major p {
-				color: #979797;
+				color: #ffffff;
 			}
+			
 
 			.wrapper.style1 label {
 				color: #ffffff;
@@ -4026,7 +4027,11 @@ input, select, textarea {
 		display: flex;
 		justify-content: center;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		flex-wrap: wrap;
+		gap: 10px;
 	  }
+
+
 
 .icon-container {
     display: flex;
