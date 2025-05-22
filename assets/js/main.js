@@ -4,21 +4,43 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 function goCountown() {
-	//the final date   
-	  const fest = new Date(2025, 8, 9, 15, 0);
-	// the system date   
+	const fest = new Date(2025, 7, 9, 15, 0);
 	const current = new Date();
-	//time remianing   
 	const sec = (fest - current) / 1000;
-	  const d = Math.floor(sec / 3600 / 24);
-	  const hrs = Math.floor(sec / 3600) % 24;
-	  const min = Math.floor(sec / 60) % 60;
-	  const s = Math.floor(sec) % 60
-	  days.innerText = d;
-	  hours.innerText = hrs;
-	  minutes.innerText = min;
-	  seconds.innerText = s;
-  }
+
+	const daysEl = document.getElementById('days');
+	const hoursEl = document.getElementById('hours');
+	const minutesEl = document.getElementById('minutes');
+	const secondsEl = document.getElementById('seconds');
+
+	if (sec > 0) {
+		// Przed ślubem – odliczanie do ślubu
+		const d = Math.floor(sec / 3600 / 24);
+		const hrs = Math.floor(sec / 3600) % 24;
+		const min = Math.floor(sec / 60) % 60;
+		const s = Math.floor(sec) % 60;
+
+		daysEl.innerText = d;
+		hoursEl.innerText = hrs;
+		minutesEl.innerText = min;
+		secondsEl.innerText = s;
+	} else {
+		// Po ślubie – czas od ślubu
+		const secPassed = Math.abs(sec);
+		const d = Math.floor(secPassed / 3600 / 24);
+		const hrs = Math.floor(secPassed / 3600) % 24;
+		const min = Math.floor(secPassed / 60) % 60;
+		const s = Math.floor(secPassed) % 60;
+
+		// Zmieniamy tytuł i wyświetlamy czas trwania małżeństwa
+		document.querySelector('#banner h1').innerText = "Jesteśmy już małżeństwem od:";
+		daysEl.innerText = d;
+		hoursEl.innerText = hrs;
+		minutesEl.innerText = min;
+		secondsEl.innerText = s;
+	}
+}
+
 
 (function($) {
 	const days = document.getElementById('days')
